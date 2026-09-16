@@ -2,169 +2,117 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#0f766e">
 <title>KajGhor - কাজঘর</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{
 font-family:Arial,"Noto Sans Bengali",sans-serif;
-background:#f5f6fa;color:#222;padding-bottom:75px
+background:#f5f7fb;color:#172033;
 }
-button,input,select,textarea{font:inherit}
-button{cursor:pointer}
-
+button,input,select{font:inherit}
+button{cursor:pointer;border:0}
 .header{
-height:64px;background:#fff;display:flex;align-items:center;
-justify-content:space-between;padding:0 17px;
-box-shadow:0 2px 10px #ddd;position:sticky;top:0;z-index:99
+position:sticky;top:0;z-index:100;
+background:#fff;border-bottom:1px solid #e7eaf0;
+padding:12px 16px;display:flex;align-items:center;
+justify-content:space-between;
 }
-.logo{font-size:27px;font-weight:bold;color:#f58200}
-.logo span{color:#222}
-.search{
-width:42px;height:42px;border-radius:50%;
-border:0;background:#f2f3f5;font-size:22px
-}
-
+.logo{font-size:25px;font-weight:800;color:#0f766e}
+.logo span{color:#111827}
+.menu-btn{font-size:24px;background:#f1f5f9;padding:6px 11px;border-radius:10px}
 .hero{
-margin:18px;border-radius:25px;padding:30px 15px;
-text-align:center;color:#fff;
-background:linear-gradient(135deg,#ff7800,#ffb52b);
-box-shadow:0 8px 22px #ddd
+margin:16px;background:linear-gradient(135deg,#0f766e,#14b8a6);
+border-radius:22px;padding:25px;color:white;
+box-shadow:0 10px 30px #0f766e30;
 }
-.hero h1{font-size:32px;margin-bottom:8px}
-.hero p{font-size:15px}
-
-.searchbox{
-margin:0 18px 20px;background:#fff;border-radius:15px;
-padding:14px;display:flex;gap:8px;
-box-shadow:0 3px 12px #ddd
+.hero h1{font-size:27px;margin-bottom:8px}
+.hero p{opacity:.9;line-height:1.6}
+.search{
+margin-top:18px;background:white;border-radius:13px;
+display:flex;align-items:center;padding:3px 12px;
 }
-.searchbox input{
-border:0;outline:0;width:100%;font-size:15px
+.search input{width:100%;border:0;outline:0;padding:11px}
+.container{padding:0 16px 40px}
+.section-title{
+font-size:20px;font-weight:800;margin:23px 0 13px
 }
-
-.title{font-size:22px;margin:20px 18px 14px}
-
-.grid{
-display:grid;grid-template-columns:repeat(3,1fr);
-gap:13px;padding:0 13px
+.tools{
+display:grid;grid-template-columns:repeat(2,1fr);gap:12px
 }
 .card{
-background:#fff;border-radius:20px;text-align:center;
-padding:13px 5px;min-height:130px;
-box-shadow:0 3px 12px #e0e0e0
+background:#fff;border-radius:17px;padding:17px;
+border:1px solid #e8ebf1;transition:.2s;
 }
+.card:active{transform:scale(.97)}
 .icon{
-height:60px;width:60px;border-radius:18px;
-margin:auto auto 8px;display:flex;
-align-items:center;justify-content:center;
-font-size:24px;color:white;font-weight:bold
+font-size:29px;background:#f0fdfa;width:52px;height:52px;
+display:flex;align-items:center;justify-content:center;
+border-radius:14px;margin-bottom:10px;
 }
-.card h3{font-size:12px}
-.card p{font-size:9px;color:#888;margin-top:5px}
-
-.c1{background:#292247}.c2{background:#178cf3}
-.c3{background:#8954df}.c4{background:#16bd59}
-.c5{background:#ff9f00}.c6{background:#e95d78}
-.c7{background:#7629c9}.c8{background:#df3d37}
-.c9{background:#19b8a6}.c10{background:#4569d9}
-.c11{background:#d93698}.c12{background:#555}
-
-.page{display:none;padding:18px}
+.card h3{font-size:16px;margin-bottom:5px}
+.card p{font-size:12px;color:#6b7280;line-height:1.5}
+.page{display:none}
 .page.active{display:block}
-
 .back{
-border:0;background:#fff;border-radius:12px;
-padding:10px 15px;margin-bottom:15px;
-box-shadow:0 2px 8px #ddd
+background:#fff;border:1px solid #ddd;padding:9px 14px;
+border-radius:10px;margin:16px 0;font-weight:bold
 }
-
-.box{
-background:#fff;border-radius:18px;
-padding:18px;box-shadow:0 3px 12px #ddd;
-margin-bottom:15px
+.panel{
+background:#fff;border-radius:18px;padding:18px;
+border:1px solid #e5e7eb;margin-bottom:15px
 }
-.box h2{margin-bottom:7px}
-.box p{color:#777;font-size:13px;margin-bottom:15px}
-
-.file{
-width:100%;padding:13px;background:#f4f5f7;
-border-radius:10px;margin-bottom:12px
+.panel h2{font-size:20px;margin-bottom:14px}
+.label{display:block;font-weight:bold;font-size:14px;margin:12px 0 7px}
+select,input[type=file],input[type=text]{
+width:100%;padding:12px;border:1px solid #d9dee7;
+border-radius:10px;background:#fff
 }
-
-.select,.input{
-width:100%;padding:13px;border:1px solid #ddd;
-border-radius:10px;margin:6px 0;outline:0;
-background:#fff
-}
-
 .btn{
-background:#ff7a00;color:white;border:0;
-padding:12px 17px;border-radius:10px;
-font-weight:bold;margin:4px 2px
+width:100%;padding:13px;border-radius:11px;
+background:#0f766e;color:#fff;font-weight:bold;margin-top:12px
 }
-.blue{background:#1976d2}
-.green{background:#15aa55}
-.red{background:#e53935}
-.dark{background:#333}
-
+.btn.secondary{background:#eef2f7;color:#172033}
+.btn.danger{background:#dc2626}
 .preview{
-max-width:100%;max-height:350px;
-display:block;margin:15px auto;border-radius:8px
+width:100%;min-height:180px;background:#f1f5f9;
+border-radius:12px;display:flex;align-items:center;
+justify-content:center;overflow:hidden;margin-top:14px
 }
-
+.preview img{max-width:100%;max-height:400px;display:block}
 .info{
-background:#fff8e7;padding:12px;
-border-radius:10px;font-size:12px;
-margin-top:12px
+background:#f0fdfa;padding:13px;border-radius:11px;
+font-size:13px;line-height:1.7;margin-top:12px
 }
-
-#sizeInfo{
-background:#eef7ff;padding:12px;
-border-radius:10px;margin:10px 0;
-font-size:13px
+.result{
+background:#f8fafc;border-radius:12px;padding:13px;margin-top:12px;
+font-size:14px;line-height:1.8
 }
-
-canvas{
-max-width:100%;display:block;
-margin:15px auto;border-radius:5px
+.footer{text-align:center;color:#6b7280;font-size:12px;padding:30px}
+.drop{
+border:2px dashed #cbd5e1;padding:25px;text-align:center;
+border-radius:14px;background:#f8fafc
 }
-
-.cv{
-background:#fff;padding:25px;
-border:1px solid #ddd;line-height:1.7
+.sheet{
+background:#fff;border:1px solid #ddd;padding:10px;
+display:grid;gap:5px;margin-top:15px
 }
-.cv h1{font-size:27px}
-.cv h2{
-border-bottom:2px solid #222;
-margin-top:18px;font-size:17px
+.sheet img{width:100%;height:auto;display:block}
+.cvbox{
+border:1px solid #ddd;padding:22px;background:#fff;
+line-height:1.8
 }
-
-.designPreview{
-padding:50px 20px;border-radius:18px;
-text-align:center;color:#fff;
-background:linear-gradient(135deg,#ff7800,#ffb52b);
-margin-top:15px
-}
-
-.bottom{
-position:fixed;bottom:0;left:0;right:0;
-height:68px;background:#fff;
-display:flex;justify-content:space-around;
-align-items:center;box-shadow:0 -2px 12px #ddd;
-z-index:100
-}
-.nav{text-align:center;color:#777;font-size:10px}
-.nav b{display:block;font-size:22px;margin-bottom:3px}
-.nav.active{color:#ff7800}
-
-.footer{text-align:center;padding:25px;color:#888;font-size:12px}
-
+.cvbox h2{text-align:center;margin-bottom:10px}
+.row{display:flex;gap:8px}
+.row>*{flex:1}
+.small{font-size:12px;color:#64748b}
+.hidden{display:none!important}
 @media(min-width:700px){
-.grid{max-width:900px;margin:auto;grid-template-columns:repeat(4,1fr)}
-.hero,.searchbox{max-width:900px;margin-left:auto;margin-right:auto}
-.page{max-width:900px;margin:auto}
+.container{max-width:1000px;margin:auto}
+.tools{grid-template-columns:repeat(4,1fr)}
+.hero{max-width:968px;margin:20px auto}
 }
 </style>
 </head>
@@ -173,1153 +121,691 @@ z-index:100
 
 <header class="header">
 <div class="logo">কাজ<span>ঘর</span></div>
-<button class="search" onclick="focusSearch()">⌕</button>
+<button class="menu-btn" onclick="goHome()">☰</button>
 </header>
 
-
 <!-- HOME -->
-
 <section id="home" class="page active">
-
 <div class="hero">
-<h1>কাজঘর</h1>
-<p>আপনার প্রয়োজনীয় সব অনলাইন কাজ এক জায়গায়</p>
+<h1>কাজঘরে স্বাগতম 👋</h1>
+<p>ছবি, PDF, CV, ডিজাইন ও অনলাইন কাজ—সব এক জায়গায়।</p>
+<div class="search">
+🔍 <input id="searchBox" placeholder="কাজ খুঁজুন..." oninput="searchTools()">
+</div>
 </div>
 
-<div class="searchbox">
-<span>🔍</span>
-<input id="search" oninput="searchTools()"
-placeholder="আপনি কী কাজ করতে চান?">
+<div class="container">
+<h2 class="section-title">জনপ্রিয় কাজ</h2>
+<div class="tools" id="tools">
+
+<div class="card tool" data-name="photo edit ছবি এডিট" onclick="openPage('photo')">
+<div class="icon">📸</div><h3>Photo Edit</h3><p>ছবি Crop, Resize ও Download</p>
 </div>
 
-<h2 class="title">জনপ্রিয় সেবা</h2>
-
-<div class="grid" id="tools">
-
-<div class="card" data-key="ai photo">
-<div class="icon c1">AI</div>
-<h3>AI ফটো এডিট</h3>
-<p>AI দিয়ে ছবি এডিট</p>
+<div class="card tool" data-name="passport nid photo size" onclick="openPage('size')">
+<div class="icon">🪪</div><h3>Photo Size</h3><p>বাংলাদেশি প্রচলিত ছবি সাইজ</p>
 </div>
 
-<div class="card" data-key="photo edit">
-<div class="icon c2">📷</div>
-<h3>ফটো এডিট</h3>
-<p>ছবি সাজান</p>
+<div class="card tool" data-name="a4 passport photo print" onclick="openPage('sheet')">
+<div class="icon">🖨️</div><h3>A4 Photo Sheet</h3><p>এক পাতায় অনেক ছবি</p>
 </div>
 
-<div class="card" data-key="passport nid photo">
-<div class="icon c3">🪪</div>
-<h3>Passport / NID</h3>
-<p>অটো ছবি তৈরি</p>
+<div class="card tool" data-name="compress photo" onclick="openPage('compress')">
+<div class="icon">🗜️</div><h3>Photo Compress</h3><p>ছবির MB/KB কমান</p>
 </div>
 
-<div class="card" data-key="document">
-<div class="icon c4">📄</div>
-<h3>ডকুমেন্ট</h3>
-<p>ডকুমেন্ট তৈরি</p>
+<div class="card tool" data-name="pdf pdf tools" onclick="openPage('pdf')">
+<div class="icon">📄</div><h3>PDF Tools</h3><p>PDF সম্পর্কিত কাজ</p>
 </div>
 
-<div class="card" data-key="job">
-<div class="icon c5">JOB</div>
-<h3>চাকরির তথ্য</h3>
-<p>চাকরির খবর</p>
+<div class="card tool" data-name="cv resume biodata" onclick="openPage('cv')">
+<div class="icon">📝</div><h3>CV Maker</h3><p>সহজে CV তৈরি করুন</p>
 </div>
 
-<div class="card" data-key="pdf">
-<div class="icon c6">PDF</div>
-<h3>PDF Tools</h3>
-<p>PDF-এর কাজ</p>
+<div class="card tool" data-name="banner poster design" onclick="openPage('banner')">
+<div class="icon">🎨</div><h3>Banner Design</h3><p>ব্যানার ও পোস্টার</p>
 </div>
 
-<div class="card" data-key="cv resume">
-<div class="icon c7">CV</div>
-<h3>CV তৈরি</h3>
-<p>সহজে CV বানান</p>
+<div class="card tool" data-name="ai photo artificial intelligence" onclick="openPage('ai')">
+<div class="icon">🤖</div><h3>AI Photo</h3><p>AI Photo Tools</p>
 </div>
 
-<div class="card" data-key="banner poster design">
-<div class="icon c8">🎨</div>
-<h3>ব্যানার ডিজাইন</h3>
-<p>পোস্টার ও ব্যানার</p>
+<div class="card tool" data-name="job online job" onclick="openPage('job')">
+<div class="icon">💼</div><h3>Job Service</h3><p>অনলাইন চাকরি সহায়তা</p>
 </div>
 
-<div class="card" data-key="resize size photo">
-<div class="icon c9">📐</div>
-<h3>Photo Size</h3>
-<p>অটো সাইজ</p>
-</div>
-
-<div class="card" data-key="compress">
-<div class="icon c10">✨</div>
-<h3>Photo Compress</h3>
-<p>Size কমান</p>
-</div>
-
-<div class="card" data-key="printing">
-<div class="icon c11">🖨</div>
-<h3>Printing</h3>
-<p>প্রিন্টের কাজ</p>
-</div>
-
-<div class="card" data-key="more tools">
-<div class="icon c12">⚙</div>
-<h3>আরও Tools</h3>
-<p>অন্যান্য সেবা</p>
+<div class="card tool" data-name="account profile login" onclick="openPage('account')">
+<div class="icon">👤</div><h3>My Account</h3><p>অ্যাকাউন্ট ও প্রোফাইল</p>
 </div>
 
 </div>
 
-</section>
-
-
-<!-- PHOTO SIZE -->
-
-<section id="photosize" class="page">
-
-<button class="back" onclick="goHome()">← হোমে ফিরে যান</button>
-
-<div class="box">
-
-<h2>📐 Auto Photo Size</h2>
-<p>আপনার প্রয়োজন অনুযায়ী সাইজ নির্বাচন করুন। Width/Height নিজে দিতে হবে না।</p>
-
-<input type="file" id="sizeFile"
-class="file" accept="image/*"
-onchange="loadSizePhoto()">
-
-<select id="sizePreset" class="select"
-onchange="showSizeInfo()">
-
-<option value="">— ছবির ধরন নির্বাচন করুন —</option>
-
-<option value="bdpass">🇧🇩 বাংলাদেশ Passport Photo — 35×45 mm</option>
-
-<option value="nid">🇧🇩 বাংলাদেশ NID Photo — 35×45 mm</option>
-
-<option value="visa">🌍 সাধারণ Visa Photo — 35×45 mm</option>
-
-<option value="intl">🌍 International Passport — 35×45 mm</option>
-
-<option value="usa">🇺🇸 USA Passport — 2×2 inch</option>
-
-<option value="uk">🇬🇧 UK Passport — 35×45 mm</option>
-
-<option value="schengen">🇪🇺 Schengen Visa — 35×45 mm</option>
-
-<option value="canada">🇨🇦 Canada Passport — 50×70 mm</option>
-
-<option value="australia">🇦🇺 Australia Passport — 35×45 mm</option>
-
-<option value="30x40">30×40 mm</option>
-
-<option value="35x45">35×45 mm</option>
-
-<option value="40x50">40×50 mm</option>
-
-<option value="45x55">45×55 mm</option>
-
-<option value="2x2">2×2 inch</option>
-
-<option value="1x1">1×1 inch</option>
-
-</select>
-
-<div id="sizeInfo">
-সাইজ নির্বাচন করলে এখানে বিস্তারিত দেখাবে।
+<h2 class="section-title">আরও সেবা</h2>
+<div class="panel">
+<p>কাজঘরে ধীরে ধীরে আরও অনলাইন সেবা যোগ করা হবে।</p>
+</div>
 </div>
 
-<button class="btn" onclick="createPhotoSize()">
-ছবি তৈরি করুন
-</button>
-
-<button class="btn blue" onclick="downloadPhotoSize()">
-Download
-</button>
-
-<canvas id="sizeCanvas"></canvas>
-
-<div class="info">
-⚠️ সরকারি/ভিসা আবেদনের ক্ষেত্রে সংশ্লিষ্ট কর্তৃপক্ষের সর্বশেষ
-ছবির specification যাচাই করুন।
-</div>
-
-</div>
-
+<div class="footer">© 2026 KajGhor — কাজঘর</div>
 </section>
 
 
 <!-- PHOTO EDIT -->
-
 <section id="photo" class="page">
+<div class="container">
+<button class="back" onclick="goHome()">← ফিরে যান</button>
+<div class="panel">
+<h2>📸 Photo Edit</h2>
+<div class="drop">
+<input type="file" id="photoFile" accept="image/*" onchange="loadPhoto()">
+<p class="small">ছবি নির্বাচন করুন</p>
+</div>
+<div class="preview" id="photoPreview">ছবি এখানে দেখা যাবে</div>
+<button class="btn" onclick="downloadPhoto('jpg')">JPG Download</button>
+<button class="btn secondary" onclick="downloadPhoto('png')">PNG Download</button>
+</div>
+</div>
+</section>
 
-<button class="back" onclick="goHome()">← হোমে ফিরে যান</button>
 
-<div class="box">
+<!-- PHOTO SIZE -->
+<section id="size" class="page">
+<div class="container">
+<button class="back" onclick="goHome()">← ফিরে যান</button>
 
-<h2>📷 Photo Editor</h2>
-<p>ছবি Upload করে JPG/PNG এবং Resize করুন।</p>
+<div class="panel">
+<h2>🪪 বাংলাদেশি Photo Size</h2>
 
-<input type="file" id="photoFile"
-class="file" accept="image/*"
-onchange="loadPhoto()">
+<label class="label">ছবির সাইজ নির্বাচন করুন</label>
+<select id="photoSize">
+<option value="35x45">35 × 45 mm — Passport/প্রচলিত</option>
+<option value="30x40">30 × 40 mm — প্রচলিত</option>
+<option value="40x50">40 × 50 mm — প্রচলিত</option>
+<option value="45x55">45 × 55 mm — প্রচলিত</option>
+<option value="1x1">1 × 1 inch — প্রচলিত</option>
+<option value="2x2">2 × 2 inch — প্রচলিত</option>
+</select>
 
-<img id="photoPreview"
-class="preview" style="display:none">
-
-<button class="btn blue" onclick="downloadJPG()">JPG</button>
-<button class="btn green" onclick="downloadPNG()">PNG</button>
-
+<div class="info">
+সাইজ নির্বাচন করলেই Width/Height হাতে লিখতে হবে না।<br>
+ছবি Auto Crop ও Auto Resize হবে।
 </div>
 
+<input type="file" id="sizeFile" accept="image/*" onchange="prepareSizePhoto()">
+
+<div class="preview" id="sizePreview">ছবি নির্বাচন করুন</div>
+
+<button class="btn" onclick="downloadSizedPhoto()">Photo Download</button>
+</div>
+</div>
+</section>
+
+
+<!-- A4 SHEET -->
+<section id="sheet" class="page">
+<div class="container">
+<button class="back" onclick="goHome()">← ফিরে যান</button>
+
+<div class="panel">
+<h2>🖨️ A4 Photo Sheet</h2>
+
+<label class="label">Photo Size</label>
+<select id="sheetSize" onchange="makeSheet()">
+<option value="35x45">35 × 45 mm</option>
+<option value="30x40">30 × 40 mm</option>
+<option value="40x50">40 × 50 mm</option>
+<option value="45x55">45 × 55 mm</option>
+<option value="1x1">1 × 1 inch</option>
+<option value="2x2">2 × 2 inch</option>
+</select>
+
+<label class="label">এক পাতায় কয়টি ছবি</label>
+<select id="sheetCount" onchange="makeSheet()">
+<option value="8">8 টি</option>
+<option value="10">10 টি</option>
+<option value="12">12 টি</option>
+<option value="16">16 টি</option>
+<option value="20">20 টি</option>
+<option value="24">24 টি</option>
+</select>
+
+<input type="file" id="sheetFile" accept="image/*" onchange="makeSheet()">
+
+<div class="sheet" id="sheetPreview">ছবি নির্বাচন করুন</div>
+
+<button class="btn" onclick="downloadSheet()">A4 Sheet Download</button>
+</div>
+</div>
 </section>
 
 
 <!-- COMPRESS -->
-
 <section id="compress" class="page">
+<div class="container">
+<button class="back" onclick="goHome()">← ফিরে যান</button>
 
-<button class="back" onclick="goHome()">← হোমে ফিরে যান</button>
+<div class="panel">
+<h2>🗜️ Photo Compress</h2>
 
-<div class="box">
+<input type="file" id="compressFile" accept="image/*" onchange="compressPreview()">
 
-<h2>✨ Photo Compress</h2>
-<p>ছবির File Size কমিয়ে Download করুন।</p>
+<label class="label">Quality</label>
+<select id="quality">
+<option value=".9">High Quality</option>
+<option value=".7">Medium Quality</option>
+<option value=".5">Small Size</option>
+<option value=".3">Very Small</option>
+</select>
 
-<input type="file" id="compressFile"
-class="file" accept="image/*">
-
-<label>Quality</label>
-
-<input type="range" id="quality"
-min="10" max="100" value="70"
-style="width:100%"
-oninput="qText.innerText=this.value+'%'">
-
-<p>Quality: <b id="qText">70%</b></p>
-
-<button class="btn" onclick="compressImage()">
-Compress
-</button>
-
-<div id="compressResult"></div>
-
+<div class="result" id="compressInfo">ছবি নির্বাচন করুন</div>
+<button class="btn" onclick="downloadCompressed()">Compressed Photo Download</button>
 </div>
-
-</section>
-
-
-<!-- PASSPORT -->
-
-<section id="passport" class="page">
-
-<button class="back" onclick="goHome()">← হোমে ফিরে যান</button>
-
-<div class="box">
-
-<h2>🪪 Passport / NID Sheet</h2>
-
-<p>একটি ছবি থেকে একসাথে অনেকগুলো ছবি তৈরি করুন।</p>
-
-<input type="file" id="passFile"
-class="file" accept="image/*"
-onchange="loadPass()">
-
-<img id="passPreview"
-class="preview" style="display:none">
-
-<button class="btn" onclick="makePassSheet()">
-Sheet তৈরি
-</button>
-
-<button class="btn blue" onclick="downloadPassSheet()">
-Download
-</button>
-
-<canvas id="passCanvas"></canvas>
-
 </div>
-
-</section>
-
-
-<!-- CV -->
-
-<section id="cv" class="page">
-
-<button class="back" onclick="goHome()">← হোমে ফিরে যান</button>
-
-<div class="box">
-
-<h2>📝 CV Maker</h2>
-
-<input class="input" id="cvName"
-placeholder="আপনার নাম">
-
-<input class="input" id="cvPhone"
-placeholder="মোবাইল নম্বর">
-
-<input class="input" id="cvEmail"
-placeholder="ইমেইল">
-
-<input class="input" id="cvAddress"
-placeholder="ঠিকানা">
-
-<textarea class="input" id="cvCareer"
-rows="3" placeholder="Career Objective"></textarea>
-
-<textarea class="input" id="cvEducation"
-rows="4" placeholder="Education"></textarea>
-
-<textarea class="input" id="cvExperience"
-rows="4" placeholder="Experience"></textarea>
-
-<button class="btn" onclick="makeCV()">CV তৈরি</button>
-
-<button class="btn blue" onclick="printCV()">Print / PDF</button>
-
-<div id="cvResult"></div>
-
-</div>
-
-</section>
-
-
-<!-- DESIGN -->
-
-<section id="design" class="page">
-
-<button class="back" onclick="goHome()">← হোমে ফিরে যান</button>
-
-<div class="box">
-
-<h2>🎨 Banner / Poster</h2>
-
-<input class="input" id="designTitle"
-placeholder="শিরোনাম">
-
-<textarea class="input" id="designText"
-rows="4"
-placeholder="ডিজাইনের লেখা"></textarea>
-
-<button class="btn" onclick="makeDesign()">
-Preview
-</button>
-
-<div id="designResult"></div>
-
-</div>
-
 </section>
 
 
 <!-- PDF -->
-
 <section id="pdf" class="page">
-
-<button class="back" onclick="goHome()">← হোমে ফিরে যান</button>
-
-<div class="box">
-
+<div class="container">
+<button class="back" onclick="goHome()">← ফিরে যান</button>
+<div class="panel">
 <h2>📄 PDF Tools</h2>
-
-<input type="file" id="pdfFile"
-class="file" accept=".pdf">
-
-<button class="btn" onclick="pdfInfo()">
-PDF Information
-</button>
-
-<div id="pdfResult"></div>
-
 <div class="info">
-Advanced PDF Merge, PDF to Word ইত্যাদি পরের ধাপে
-server/API দিয়ে যুক্ত করা যাবে।
+এই ভার্সনে PDF Tools-এর interface প্রস্তুত করা হয়েছে।<br>
+পরবর্তী ধাপে PDF Merge, JPG to PDF, PDF Compress ইত্যাদি যোগ করা যাবে।
+</div>
+<button class="btn" onclick="alert('JPG to PDF ফিচার পরবর্তী আপডেটে যোগ হবে।')">JPG → PDF</button>
+<button class="btn secondary" onclick="alert('PDF Merge ফিচার পরবর্তী আপডেটে যোগ হবে।')">PDF Merge</button>
+<button class="btn secondary" onclick="alert('PDF Compress ফিচার পরবর্তী আপডেটে যোগ হবে।')">PDF Compress</button>
+</div>
+</div>
+</section>
+
+
+<!-- CV -->
+<section id="cv" class="page">
+<div class="container">
+<button class="back" onclick="goHome()">← ফিরে যান</button>
+
+<div class="panel">
+<h2>📝 CV Maker</h2>
+
+<label class="label">নাম</label>
+<input id="cvName" placeholder="আপনার নাম">
+
+<label class="label">মোবাইল</label>
+<input id="cvPhone" placeholder="01XXXXXXXXX">
+
+<label class="label">Email</label>
+<input id="cvEmail" placeholder="example@gmail.com">
+
+<label class="label">ঠিকানা</label>
+<input id="cvAddress" placeholder="আপনার ঠিকানা">
+
+<label class="label">শিক্ষাগত যোগ্যতা</label>
+<input id="cvEdu" placeholder="SSC / HSC / Diploma / Degree">
+
+<label class="label">অভিজ্ঞতা</label>
+<input id="cvExp" placeholder="কাজের অভিজ্ঞতা">
+
+<button class="btn" onclick="makeCV()">CV তৈরি করুন</button>
 </div>
 
+<div class="panel">
+<div class="cvbox" id="cvPreview">
+<h2>Curriculum Vitae</h2>
+<p>তথ্য পূরণ করে CV তৈরি করুন।</p>
+</div>
+<button class="btn" onclick="window.print()">Print / Save PDF</button>
+</div>
+</div>
+</section>
+
+
+<!-- BANNER -->
+<section id="banner" class="page">
+<div class="container">
+<button class="back" onclick="goHome()">← ফিরে যান</button>
+
+<div class="panel">
+<h2>🎨 Banner / Poster</h2>
+
+<label class="label">প্রধান লেখা</label>
+<input id="bannerTitle" placeholder="আপনার দোকানের নাম">
+
+<label class="label">দ্বিতীয় লেখা</label>
+<input id="bannerSub" placeholder="আপনার সেবার নাম">
+
+<label class="label">মোবাইল</label>
+<input id="bannerPhone" placeholder="018XXXXXXXX">
+
+<button class="btn" onclick="makeBanner()">Preview তৈরি করুন</button>
 </div>
 
+<div class="panel">
+<div id="bannerPreview" style="
+background:linear-gradient(135deg,#0f766e,#14b8a6);
+color:white;text-align:center;padding:60px 20px;border-radius:15px">
+<h1>আপনার Banner</h1>
+<p style="margin:15px">এখানে আপনার লেখা দেখা যাবে</p>
+</div>
+</div>
+</div>
 </section>
 
 
 <!-- AI -->
-
 <section id="ai" class="page">
+<div class="container">
+<button class="back" onclick="goHome()">← ফিরে যান</button>
 
-<button class="back" onclick="goHome()">← হোমে ফিরে যান</button>
-
-<div class="box">
-
-<h2>🤖 AI Photo Edit</h2>
-
-<input type="file" class="file"
-accept="image/*" onchange="aiPreview(this)">
-
-<img id="aiImage"
-class="preview" style="display:none">
-
-<button class="btn"
-onclick="alert('AI API সংযোগ করার পর AI Edit চালু হবে।')">
-✨ AI Edit
-</button>
-
+<div class="panel">
+<h2>🤖 AI Photo Tools</h2>
 <div class="info">
-AI Background Remove, Enhance, Face Retouch ইত্যাদির জন্য
-AI API প্রয়োজন।
+AI Background Remove, Face Enhance, Dress Change ইত্যাদির জন্য
+বাইরের AI API/Server প্রয়োজন। এই জায়গাটি ভবিষ্যৎ API সংযোগের জন্য প্রস্তুত।
 </div>
-
+<button class="btn" onclick="alert('AI Background Remove API যুক্ত করলে এই ফিচার চালু হবে।')">Background Remove</button>
+<button class="btn secondary" onclick="alert('AI Enhance API যুক্ত করলে এই ফিচার চালু হবে।')">AI Enhance</button>
+<button class="btn secondary" onclick="alert('AI Photo API যুক্ত করলে এই ফিচার চালু হবে।')">AI Photo</button>
 </div>
-
+</div>
 </section>
 
 
 <!-- JOB -->
-
 <section id="job" class="page">
-
-<button class="back" onclick="goHome()">← হোমে ফিরে যান</button>
-
-<div class="box">
-
-<h2>💼 চাকরির তথ্য</h2>
-
-<p>এখানে আপনার চাকরির তথ্য ও Circular দেখানো যাবে।</p>
-
+<div class="container">
+<button class="back" onclick="goHome()">← ফিরে যান</button>
+<div class="panel">
+<h2>💼 Job Service</h2>
 <div class="info">
-পরবর্তীতে Admin Panel দিয়ে আপনি নিজেই চাকরির Circular
-যোগ করতে পারবেন।
+চাকরির আবেদন, CV তৈরি, ছবি প্রস্তুত ও অনলাইন আবেদন সহায়তার জন্য
+এই অংশ ব্যবহার করা যাবে।
 </div>
-
+<button class="btn" onclick="openPage('cv')">CV তৈরি করুন</button>
+<button class="btn secondary" onclick="alert('Job Application ফিচার পরবর্তী ধাপে যোগ হবে।')">Job Application</button>
 </div>
-
+</div>
 </section>
 
 
 <!-- ACCOUNT -->
-
 <section id="account" class="page">
+<div class="container">
+<button class="back" onclick="goHome()">← ফিরে যান</button>
 
-<button class="back" onclick="goHome()">← হোমে ফিরে যান</button>
+<div class="panel">
+<h2>👤 My Account</h2>
 
-<div class="box">
+<label class="label">আপনার নাম</label>
+<input id="userName" placeholder="নাম লিখুন">
 
-<h2>👤 আমার প্রোফাইল</h2>
+<label class="label">মোবাইল নম্বর</label>
+<input id="userMobile" placeholder="01XXXXXXXXX">
 
-<input class="input" placeholder="নাম">
+<button class="btn" onclick="saveAccount()">Save Profile</button>
 
-<input class="input" placeholder="মোবাইল নম্বর">
-
-<input class="input" placeholder="ইমেইল">
-
-<button class="btn">
-Save Profile
-</button>
-
+<div class="result" id="accountResult">কোনো তথ্য সংরক্ষণ করা হয়নি।</div>
 </div>
-
+</div>
 </section>
 
 
-<footer class="footer">
-© 2026 KajGhor — কাজঘর
-</footer>
-
-
-<nav class="bottom">
-
-<div class="nav active" onclick="goHome()">
-<b>⌂</b>হোম
-</div>
-
-<div class="nav" onclick="showPage('photosize')">
-<b>▦</b>সেবাসমূহ
-</div>
-
-<div class="nav" onclick="showPage('compress')">
-<b>♡</b>পছন্দ
-</div>
-
-<div class="nav" onclick="showPage('account')">
-<b>♙</b>অ্যাকাউন্ট
-</div>
-
-</nav>
-
-
 <script>
+let photoImg=null;
+let sizeImg=null;
+let sheetImg=null;
+let compressedImg=null;
 
-let sizeImage=null;
-let photoImage=null;
-let passImage=null;
-let sizeCanvas=document.getElementById("sizeCanvas");
 
-
-/* PAGE */
-
-function hidePages(){
-document.querySelectorAll(".page")
-.forEach(x=>x.classList.remove("active"));
-}
-
-function showPage(id){
-hidePages();
+/* PAGE SYSTEM */
+function openPage(id){
+document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
 document.getElementById(id).classList.add("active");
 window.scrollTo(0,0);
 }
-
-function goHome(){
-showPage("home");
-}
+function goHome(){openPage("home")}
 
 
 /* SEARCH */
-
-function focusSearch(){
-goHome();
-setTimeout(()=>{
-document.getElementById("search").focus();
-},200);
-}
-
 function searchTools(){
-
-let q=document.getElementById("search")
-.value.toLowerCase();
-
-document.querySelectorAll(".card")
-.forEach(card=>{
-
-let key=card.dataset.key.toLowerCase();
-
-card.style.display=
-key.includes(q)?"block":"none";
-
+let q=document.getElementById("searchBox").value.toLowerCase();
+document.querySelectorAll(".tool").forEach(x=>{
+x.style.display=x.dataset.name.toLowerCase().includes(q)?"block":"none";
 });
 }
 
 
-/* HOME CARD */
-
-document.querySelectorAll(".card")
-.forEach((card,i)=>{
-
-card.onclick=function(){
-
-if(i===0)showPage("ai");
-if(i===1)showPage("photo");
-if(i===2)showPage("photosize");
-if(i===3)showPage("pdf");
-if(i===4)showPage("job");
-if(i===5)showPage("pdf");
-if(i===6)showPage("cv");
-if(i===7)showPage("design");
-if(i===8)showPage("photosize");
-if(i===9)showPage("compress");
-if(i===10)showPage("design");
-if(i===11)alert("আরও Tools পরের ধাপে যোগ হবে");
-
-};
-
-});
-
-
-/* PHOTO SIZE PRESETS */
-
-const presets={
-
-bdpass:{
-name:"বাংলাদেশ Passport Photo",
-w:35,h:45,unit:"mm",dpi:300
-},
-
-nid:{
-name:"বাংলাদেশ NID Photo",
-w:35,h:45,unit:"mm",dpi:300
-},
-
-visa:{
-name:"সাধারণ Visa Photo",
-w:35,h:45,unit:"mm",dpi:300
-},
-
-intl:{
-name:"International Passport",
-w:35,h:45,unit:"mm",dpi:300
-},
-
-usa:{
-name:"USA Passport",
-w:2,h:2,unit:"inch",dpi:300
-},
-
-uk:{
-name:"UK Passport",
-w:35,h:45,unit:"mm",dpi:300
-},
-
-schengen:{
-name:"Schengen Visa",
-w:35,h:45,unit:"mm",dpi:300
-},
-
-canada:{
-name:"Canada Passport",
-w:50,h:70,unit:"mm",dpi:300
-},
-
-australia:{
-name:"Australia Passport",
-w:35,h:45,unit:"mm",dpi:300
-},
-
-"30x40":{
-name:"30 × 40 mm",
-w:30,h:40,unit:"mm",dpi:300
-},
-
-"35x45":{
-name:"35 × 45 mm",
-w:35,h:45,unit:"mm",dpi:300
-},
-
-"40x50":{
-name:"40 × 50 mm",
-w:40,h:50,unit:"mm",dpi:300
-},
-
-"45x55":{
-name:"45 × 55 mm",
-w:45,h:55,unit:"mm",dpi:300
-},
-
-"2x2":{
-name:"2 × 2 inch",
-w:2,h:2,unit:"inch",dpi:300
-},
-
-"1x1":{
-name:"1 × 1 inch",
-w:1,h:1,unit:"inch",dpi:300
-}
-
-};
-
-
-/* SIZE INFO */
-
-function showSizeInfo(){
-
-let key=document.getElementById("sizePreset").value;
-
-if(!key){
-document.getElementById("sizeInfo").innerHTML=
-"সাইজ নির্বাচন করলে এখানে বিস্তারিত দেখাবে।";
-return;
-}
-
-let p=presets[key];
-
-let pxW;
-let pxH;
-
-if(p.unit==="mm"){
-pxW=Math.round(p.w/25.4*p.dpi);
-pxH=Math.round(p.h/25.4*p.dpi);
-}else{
-pxW=Math.round(p.w*p.dpi);
-pxH=Math.round(p.h*p.dpi);
-}
-
-document.getElementById("sizeInfo").innerHTML=
-"<b>"+p.name+"</b><br>"+
-"Print Size: "+p.w+" × "+p.h+" "+p.unit+
-"<br>Resolution: "+pxW+" × "+pxH+" px"+
-"<br>DPI: "+p.dpi;
-
-}
-
-
-/* LOAD SIZE PHOTO */
-
-function loadSizePhoto(){
-
-let file=document.getElementById("sizeFile").files[0];
-
+/* FILE READER */
+function readImage(file,callback){
 if(!file)return;
-
-let reader=new FileReader();
-
-reader.onload=function(e){
-
-sizeImage=new Image();
-
-sizeImage.onload=function(){
-
-showSizeInfo();
-
+let r=new FileReader();
+r.onload=e=>{
+let img=new Image();
+img.onload=()=>callback(img);
+img.src=e.target.result;
 };
-
-sizeImage.src=e.target.result;
-
-};
-
-reader.readAsDataURL(file);
-
-}
-
-
-/* CREATE AUTO SIZE */
-
-function createPhotoSize(){
-
-if(!sizeImage){
-alert("আগে ছবি Upload করুন");
-return;
-}
-
-let key=document.getElementById("sizePreset").value;
-
-if(!key){
-alert("আগে ছবির সাইজ নির্বাচন করুন");
-return;
-}
-
-let p=presets[key];
-
-let w;
-let h;
-
-if(p.unit==="mm"){
-w=Math.round(p.w/25.4*p.dpi);
-h=Math.round(p.h/25.4*p.dpi);
-}else{
-w=Math.round(p.w*p.dpi);
-h=Math.round(p.h*p.dpi);
-}
-
-sizeCanvas.width=w;
-sizeCanvas.height=h;
-
-let ctx=sizeCanvas.getContext("2d");
-
-ctx.fillStyle="#fff";
-ctx.fillRect(0,0,w,h);
-
-/*
-ছবিকে পুরো ফ্রেমে fit করা হচ্ছে।
-*/
-let scale=Math.max(
-w/sizeImage.width,
-h/sizeImage.height
-);
-
-let nw=sizeImage.width*scale;
-let nh=sizeImage.height*scale;
-
-let x=(w-nw)/2;
-let y=(h-nh)/2;
-
-ctx.drawImage(sizeImage,x,y,nw,nh);
-
-}
-
-
-function downloadPhotoSize(){
-
-if(!sizeCanvas.width){
-alert("আগে ছবি তৈরি করুন");
-return;
-}
-
-let link=document.createElement("a");
-
-link.download="KajGhor-Photo.jpg";
-
-link.href=sizeCanvas.toDataURL(
-"image/jpeg",.95
-);
-
-link.click();
-
+r.readAsDataURL(file);
 }
 
 
 /* PHOTO EDIT */
-
 function loadPhoto(){
+let f=document.getElementById("photoFile").files[0];
+readImage(f,img=>{
+photoImg=img;
+document.getElementById("photoPreview").innerHTML="";
+document.getElementById("photoPreview").appendChild(img.cloneNode());
+});
+}
 
-let file=document.getElementById("photoFile").files[0];
-
-if(!file)return;
-
-let reader=new FileReader();
-
-reader.onload=function(e){
-
-photoImage=new Image();
-
-photoImage.onload=function(){
-
-let img=document.getElementById("photoPreview");
-
-img.src=e.target.result;
-img.style.display="block";
-
-};
-
-photoImage.src=e.target.result;
-
-};
-
-reader.readAsDataURL(file);
-
+function downloadPhoto(type){
+if(!photoImg){alert("আগে একটি ছবি নির্বাচন করুন");return}
+let c=document.createElement("canvas");
+c.width=photoImg.naturalWidth;
+c.height=photoImg.naturalHeight;
+let x=c.getContext("2d");
+x.drawImage(photoImg,0,0);
+let mime=type==="png"?"image/png":"image/jpeg";
+let a=document.createElement("a");
+a.href=c.toDataURL(mime,.95);
+a.download="kajghor-photo."+type;
+a.click();
 }
 
 
-function makePhotoCanvas(){
+/* SIZE */
+const sizes={
+"35x45":[35,45],
+"30x40":[30,40],
+"40x50":[40,50],
+"45x55":[45,55],
+"1x1":[25.4,25.4],
+"2x2":[50.8,50.8]
+};
+
+function prepareSizePhoto(){
+let f=document.getElementById("sizeFile").files[0];
+readImage(f,img=>{
+sizeImg=img;
+showSizedPreview();
+});
+}
+
+function showSizedPreview(){
+if(!sizeImg)return;
+let key=document.getElementById("photoSize").value;
+let s=sizes[key];
+let ratio=s[0]/s[1];
+
+let box=document.getElementById("sizePreview");
+box.innerHTML="";
+
+let c=document.createElement("canvas");
+let h=350;
+let w=h*ratio;
+c.width=w;c.height=h;
+
+let ctx=c.getContext("2d");
+let iw=sizeImg.naturalWidth;
+let ih=sizeImg.naturalHeight;
+let ir=iw/ih;
+
+let sw,sh,sx,sy;
+
+if(ir>ratio){
+sh=ih;sw=ih*ratio;sx=(iw-sw)/2;sy=0;
+}else{
+sw=iw;sh=iw/ratio;sx=0;sy=(ih-sh)/2;
+}
+
+ctx.drawImage(sizeImg,sx,sy,sw,sh,0,0,w,h);
+box.appendChild(c);
+}
+
+document.getElementById("photoSize").addEventListener("change",showSizedPreview);
+
+function downloadSizedPhoto(){
+if(!sizeImg){alert("আগে একটি ছবি নির্বাচন করুন");return}
+
+let key=document.getElementById("photoSize").value;
+let s=sizes[key];
+let ratio=s[0]/s[1];
+
+let w=700;
+let h=Math.round(w/ratio);
+
+let c=document.createElement("canvas");
+c.width=w;c.height=h;
+
+let ctx=c.getContext("2d");
+let iw=sizeImg.naturalWidth;
+let ih=sizeImg.naturalHeight;
+let ir=iw/ih;
+
+let sw,sh,sx,sy;
+
+if(ir>ratio){
+sh=ih;sw=ih*ratio;sx=(iw-sw)/2;sy=0;
+}else{
+sw=iw;sh=iw/ratio;sx=0;sy=(ih-sh)/2;
+}
+
+ctx.drawImage(sizeImg,sx,sy,sw,sh,0,0,w,h);
+
+let a=document.createElement("a");
+a.href=c.toDataURL("image/jpeg",.95);
+a.download="kajghor-"+key+".jpg";
+a.click();
+}
+
+
+/* A4 SHEET */
+function makeSheet(){
+let f=document.getElementById("sheetFile").files[0];
+
+if(f){
+readImage(f,img=>{
+sheetImg=img;
+renderSheet();
+});
+}else if(sheetImg){
+renderSheet();
+}
+}
+
+function renderSheet(){
+let box=document.getElementById("sheetPreview");
+box.innerHTML="";
+
+let key=document.getElementById("sheetSize").value;
+let count=parseInt(document.getElementById("sheetCount").value);
+let s=sizes[key];
+let ratio=s[0]/s[1];
+
+let cols=4;
+let rows=Math.ceil(count/cols);
+
+box.style.gridTemplateColumns=`repeat(${cols},1fr)`;
+
+for(let i=0;i<count;i++){
+let c=document.createElement("canvas");
+let h=150;
+let w=h*ratio;
+c.width=w;c.height=h;
+
+let ctx=c.getContext("2d");
+let iw=sheetImg.naturalWidth;
+let ih=sheetImg.naturalHeight;
+let ir=iw/ih;
+let sw,sh,sx,sy;
+
+if(ir>ratio){
+sh=ih;sw=ih*ratio;sx=(iw-sw)/2;sy=0;
+}else{
+sw=iw;sh=iw/ratio;sx=0;sy=(ih-sh)/2;
+}
+
+ctx.drawImage(sheetImg,sx,sy,sw,sh,0,0,w,h);
+box.appendChild(c);
+}
+}
+
+function downloadSheet(){
+if(!sheetImg){alert("আগে ছবি নির্বাচন করুন");return}
+
+let key=document.getElementById("sheetSize").value;
+let count=parseInt(document.getElementById("sheetCount").value);
+let s=sizes[key];
+let ratio=s[0]/s[1];
 
 let c=document.createElement("canvas");
 
-c.width=photoImage.width;
-c.height=photoImage.height;
+/* A4 at 150 DPI */
+c.width=1240;
+c.height=1754;
 
-c.getContext("2d")
-.drawImage(photoImage,0,0);
+let ctx=c.getContext("2d");
+ctx.fillStyle="#ffffff";
+ctx.fillRect(0,0,c.width,c.height);
 
-return c;
+let cols=4;
+let margin=50;
+let gap=15;
+let cellW=(c.width-margin*2-gap*(cols-1))/cols;
+let cellH=cellW/ratio;
 
+let y=margin;
+
+for(let i=0;i<count;i++){
+let col=i%cols;
+let row=Math.floor(i/cols);
+let x=margin+col*(cellW+gap);
+let yy=y+row*(cellH+gap);
+
+if(yy+cellH>c.height-margin)break;
+
+let iw=sheetImg.naturalWidth;
+let ih=sheetImg.naturalHeight;
+let ir=iw/ih;
+let sw,sh,sx,sy;
+
+if(ir>ratio){
+sh=ih;sw=ih*ratio;sx=(iw-sw)/2;sy=0;
+}else{
+sw=iw;sh=iw/ratio;sx=0;sy=(ih-sh)/2;
 }
 
-
-function downloadJPG(){
-
-if(!photoImage){
-alert("আগে ছবি Upload করুন");
-return;
+ctx.drawImage(sheetImg,sx,sy,sw,sh,x,yy,cellW,cellH);
 }
-
-let c=makePhotoCanvas();
 
 let a=document.createElement("a");
-
-a.download="KajGhor.jpg";
-
-a.href=c.toDataURL(
-"image/jpeg",.95
-);
-
+a.href=c.toDataURL("image/jpeg",.95);
+a.download="kajghor-a4-photo-sheet.jpg";
 a.click();
-
-}
-
-
-function downloadPNG(){
-
-if(!photoImage){
-alert("আগে ছবি Upload করুন");
-return;
-}
-
-let c=makePhotoCanvas();
-
-let a=document.createElement("a");
-
-a.download="KajGhor.png";
-
-a.href=c.toDataURL("image/png");
-
-a.click();
-
 }
 
 
 /* COMPRESS */
+function compressPreview(){
+let f=document.getElementById("compressFile").files[0];
+if(!f)return;
 
-function compressImage(){
-
-let file=document.getElementById("compressFile").files[0];
-
-if(!file){
-alert("আগে ছবি Upload করুন");
-return;
-}
-
-let quality=
-document.getElementById("quality").value/100;
-
-let reader=new FileReader();
-
-reader.onload=function(e){
-
-let img=new Image();
-
-img.onload=function(){
+readImage(f,img=>{
+let quality=parseFloat(document.getElementById("quality").value);
 
 let c=document.createElement("canvas");
-
-c.width=img.width;
-c.height=img.height;
-
-c.getContext("2d")
-.drawImage(img,0,0);
-
-c.toBlob(function(blob){
-
-let url=URL.createObjectURL(blob);
-
-document.getElementById("compressResult")
-.innerHTML=
-
-"<div class='info'>"+
-"নতুন File Size: "+
-Math.round(blob.size/1024)+" KB"+
-"</div>"+
-"<br>"+
-"<a class='btn green' "+
-"download='KajGhor-Compressed.jpg' "+
-"href='"+url+"'>Download</a>";
-
-},"image/jpeg",quality);
-
-};
-
-img.src=e.target.result;
-
-};
-
-reader.readAsDataURL(file);
-
-}
-
-
-/* PASSPORT SHEET */
-
-function loadPass(){
-
-let file=document.getElementById("passFile").files[0];
-
-if(!file)return;
-
-let reader=new FileReader();
-
-reader.onload=function(e){
-
-passImage=new Image();
-
-passImage.onload=function(){
-
-let img=document.getElementById("passPreview");
-
-img.src=e.target.result;
-img.style.display="block";
-
-};
-
-passImage.src=e.target.result;
-
-};
-
-reader.readAsDataURL(file);
-
-}
-
-
-function makePassSheet(){
-
-if(!passImage){
-alert("আগে ছবি Upload করুন");
-return;
-}
-
-let c=document.getElementById("passCanvas");
-
-let pw=413;
-let ph=531;
-let gap=20;
-
-c.width=pw*4+gap*5;
-c.height=ph*3+gap*4;
+c.width=img.naturalWidth;
+c.height=img.naturalHeight;
 
 let ctx=c.getContext("2d");
+ctx.drawImage(img,0,0);
 
-ctx.fillStyle="#fff";
-ctx.fillRect(0,0,c.width,c.height);
+let data=c.toDataURL("image/jpeg",quality);
+compressedImg=data;
 
-for(let y=0;y<3;y++){
+let kb=Math.round((data.length*3/4)/1024);
 
-for(let x=0;x<4;x++){
-
-let px=gap+x*(pw+gap);
-let py=gap+y*(ph+gap);
-
-ctx.drawImage(
-passImage,
-px,py,pw,ph
-);
-
+document.getElementById("compressInfo").innerHTML=
+"Original: "+Math.round(f.size/1024)+" KB<br>"+
+"Compressed: প্রায় "+kb+" KB";
+});
 }
 
-}
-
-}
-
-
-function downloadPassSheet(){
-
-let c=document.getElementById("passCanvas");
-
-if(!c.width){
-alert("আগে Sheet তৈরি করুন");
-return;
-}
-
+function downloadCompressed(){
+if(!compressedImg){alert("আগে ছবি নির্বাচন করুন");return}
 let a=document.createElement("a");
-
-a.download="KajGhor-Passport-Sheet.png";
-
-a.href=c.toDataURL("image/png");
-
+a.href=compressedImg;
+a.download="kajghor-compressed.jpg";
 a.click();
-
 }
 
 
 /* CV */
-
-function esc(s){
-
-return String(s||"")
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;");
-
-}
-
-
 function makeCV(){
+let name=document.getElementById("cvName").value||"আপনার নাম";
+let phone=document.getElementById("cvPhone").value||"";
+let email=document.getElementById("cvEmail").value||"";
+let address=document.getElementById("cvAddress").value||"";
+let edu=document.getElementById("cvEdu").value||"";
+let exp=document.getElementById("cvExp").value||"";
 
-let n=esc(document.getElementById("cvName").value);
-let p=esc(document.getElementById("cvPhone").value);
-let e=esc(document.getElementById("cvEmail").value);
-let a=esc(document.getElementById("cvAddress").value);
-let c=esc(document.getElementById("cvCareer").value);
-let ed=esc(document.getElementById("cvEducation").value);
-let ex=esc(document.getElementById("cvExperience").value);
-
-document.getElementById("cvResult").innerHTML=
-
-"<div class='cv' id='cvPrint'>"+
-"<h1>"+n+"</h1>"+
-"<p>📞 "+p+"</p>"+
-"<p>✉ "+e+"</p>"+
-"<p>📍 "+a+"</p>"+
-"<h2>Career Objective</h2>"+
-"<p>"+c+"</p>"+
-"<h2>Education</h2>"+
-"<p>"+ed.replace(/\n/g,"<br>")+"</p>"+
-"<h2>Experience</h2>"+
-"<p>"+ex.replace(/\n/g,"<br>")+"</p>"+
-"</div>";
-
+document.getElementById("cvPreview").innerHTML=`
+<h2>${name}</h2>
+<p><b>Mobile:</b> ${phone}</p>
+<p><b>Email:</b> ${email}</p>
+<p><b>Address:</b> ${address}</p>
+<hr style="margin:15px 0">
+<h3>Career Objective</h3>
+<p>To build a successful career through dedication, honesty and hard work.</p>
+<h3>Educational Qualification</h3>
+<p>${edu}</p>
+<h3>Work Experience</h3>
+<p>${exp}</p>
+`;
 }
 
 
-function printCV(){
+/* BANNER */
+function makeBanner(){
+let title=document.getElementById("bannerTitle").value||"কাজঘর";
+let sub=document.getElementById("bannerSub").value||"অনলাইন সকল সেবা";
+let phone=document.getElementById("bannerPhone").value||"";
 
-if(!document.getElementById("cvPrint")){
-makeCV();
-}
-
-let content=
-document.getElementById("cvPrint").innerHTML;
-
-let w=window.open("","","width=800,height=900");
-
-w.document.write(
-"<html><head><title>KajGhor CV</title>"+
-"<style>body{font-family:Arial;padding:40px}"+
-"h2{border-bottom:2px solid #222}</style>"+
-"</head><body>"+content+
-"</body></html>"
-);
-
-w.document.close();
-w.print();
-
+document.getElementById("bannerPreview").innerHTML=`
+<h1 style="font-size:32px">${title}</h1>
+<p style="font-size:19px;margin:18px">${sub}</p>
+<p style="font-size:17px">${phone}</p>
+`;
 }
 
 
-/* DESIGN */
+/* ACCOUNT */
+function saveAccount(){
+let n=document.getElementById("userName").value;
+let m=document.getElementById("userMobile").value;
 
-function makeDesign(){
+if(!n){alert("নাম লিখুন");return}
 
-let title=
-esc(document.getElementById("designTitle").value)
-||"কাজঘর";
+localStorage.setItem("kajghor_name",n);
+localStorage.setItem("kajghor_mobile",m);
 
-let text=
-esc(document.getElementById("designText").value)
-||"আপনার প্রয়োজনীয় সব অনলাইন কাজ এক জায়গায়";
-
-document.getElementById("designResult").innerHTML=
-
-"<div class='designPreview'>"+
-"<h1>"+title+"</h1>"+
-"<p style='margin-top:15px;white-space:pre-line'>"+
-text+
-"</p>"+
-"</div>";
-
+document.getElementById("accountResult").innerHTML=
+"✅ Profile Saved<br>নাম: "+n+"<br>মোবাইল: "+m;
 }
 
+window.addEventListener("load",()=>{
+let n=localStorage.getItem("kajghor_name");
+let m=localStorage.getItem("kajghor_mobile");
 
-/* PDF */
-
-function pdfInfo(){
-
-let f=document.getElementById("pdfFile").files[0];
-
-if(!f){
-alert("আগে PDF নির্বাচন করুন");
-return;
+if(n){
+document.getElementById("userName").value=n;
+document.getElementById("userMobile").value=m||"";
+document.getElementById("accountResult").innerHTML=
+"নাম: "+n+"<br>মোবাইল: "+(m||"");
 }
-
-document.getElementById("pdfResult").innerHTML=
-
-"<div class='info'>"+
-"<b>File:</b> "+esc(f.name)+
-"<br><b>Size:</b> "+
-Math.round(f.size/1024)+" KB"+
-"</div>";
-
-}
-
-
-/* AI PREVIEW */
-
-function aiPreview(input){
-
-let file=input.files[0];
-
-if(!file)return;
-
-let reader=new FileReader();
-
-reader.onload=function(e){
-
-let img=document.getElementById("aiImage");
-
-img.src=e.target.result;
-
-img.style.display="block";
-
-};
-
-reader.readAsDataURL(file);
-
-}
-
+});
 </script>
 
 </body>
