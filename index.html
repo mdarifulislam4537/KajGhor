@@ -1,235 +1,268 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KajGhor - কাজঘর</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KajGhor - কাজঘর</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:Arial,"Noto Sans Bengali",sans-serif;
+  background:#f5f7fb;
+  color:#202124;
+  padding-bottom:75px
+}
+.header{
+  background:#fff;
+  height:65px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 18px;
+  box-shadow:0 2px 10px #ddd;
+  position:sticky;
+  top:0;
+  z-index:100
+}
+.logo{
+  font-size:25px;
+  font-weight:bold;
+  color:#ff7a00
+}
+.logo span{color:#222}
+.search{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:#f2f3f5;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:23px
+}
+.hero{
+  margin:18px;
+  padding:28px 18px;
+  border-radius:22px;
+  background:linear-gradient(135deg,#ff8a00,#ffb52e);
+  color:white;
+  text-align:center;
+  box-shadow:0 7px 20px #ddd
+}
+.hero h1{font-size:29px;margin-bottom:8px}
+.hero p{font-size:14px}
+.searchbox{
+  margin:0 18px 20px;
+  background:white;
+  border-radius:14px;
+  padding:13px 16px;
+  box-shadow:0 2px 10px #e1e1e1;
+  color:#888;
+  font-size:14px
+}
+.title{
+  font-size:20px;
+  font-weight:bold;
+  margin:20px 18px 13px
+}
+.grid{
+  padding:0 14px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:13px
+}
+.card{
+  background:white;
+  border-radius:18px;
+  padding:15px 5px;
+  text-align:center;
+  box-shadow:0 3px 12px #e2e2e2;
+  min-height:125px;
+  transition:.2s
+}
+.card:active{transform:scale(.96)}
+.icon{
+  width:58px;
+  height:58px;
+  border-radius:17px;
+  margin:0 auto 9px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:27px;
+  color:white
+}
+.card h3{font-size:12px;margin-bottom:4px}
+.card p{font-size:9px;color:#888}
 
-    body {
-      background: #f7f4ef;
-      color: #222;
-    }
+.i1{background:#252044}
+.i2{background:#168cff}
+.i3{background:#8d55df}
+.i4{background:#19bf5b}
+.i5{background:#ff9f00}
+.i6{background:#ed6178}
+.i7{background:#7625c9}
+.i8{background:#e83d35}
+.i9{background:#20b9a7}
+.i10{background:#4969d8}
+.i11{background:#df4d9a}
+.i12{background:#555}
 
-    header {
-      background: white;
-      padding: 14px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      box-shadow: 0 2px 8px #ddd;
-    }
+.bottom{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  height:67px;
+  background:white;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  box-shadow:0 -2px 12px #ddd;
+  z-index:100
+}
+.nav{
+  text-align:center;
+  font-size:10px;
+  color:#777
+}
+.nav b{
+  display:block;
+  font-size:21px;
+  margin-bottom:3px
+}
+.nav.active{color:#ff7a00}
 
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      color: #f28c00;
-    }
+.footer{
+  text-align:center;
+  margin-top:28px;
+  padding:20px;
+  background:white;
+  color:#888;
+  font-size:12px
+}
 
-    .search {
-      width: 38px;
-      height: 38px;
-      border: 1px solid #ddd;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 35px 15px 25px;
-    }
-
-    .hero h1 {
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      color: #666;
-      font-size: 15px;
-    }
-
-    .grid {
-      max-width: 900px;
-      margin: auto;
-      padding: 15px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 22px;
-      padding: 22px 10px;
-      text-align: center;
-      box-shadow: 0 3px 12px #ddd;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-    }
-
-    .icon {
-      width: 75px;
-      height: 75px;
-      margin: auto auto 12px;
-      border-radius: 22px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 38px;
-      background: #eee;
-    }
-
-    .card h3 {
-      font-size: 15px;
-      margin-bottom: 5px;
-    }
-
-    .card p {
-      font-size: 11px;
-      color: #777;
-    }
-
-    .ai { background: #242044; color: #ff9900; }
-    .photo { background: #168cff; color: white; }
-    .document { background: #8c5bea; color: white; }
-    .pdf { background: #19c95b; color: white; }
-    .job { background: #ffad00; color: white; }
-    .print { background: #ed6379; color: white; }
-    .cv { background: #8d25d9; color: white; }
-    .design { background: #e33b32; color: white; }
-    .tools { background: #2fc7b2; color: white; }
-
-    footer {
-      text-align: center;
-      padding: 30px 15px;
-      margin-top: 30px;
-      background: white;
-      color: #777;
-      font-size: 13px;
-    }
-
-    @media (max-width: 600px) {
-      .grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
-        padding: 12px;
-      }
-
-      .card {
-        padding: 15px 5px;
-        border-radius: 17px;
-      }
-
-      .icon {
-        width: 58px;
-        height: 58px;
-        font-size: 28px;
-        border-radius: 17px;
-      }
-
-      .card h3 {
-        font-size: 12px;
-      }
-
-      .card p {
-        font-size: 9px;
-      }
-
-      .hero h1 {
-        font-size: 26px;
-      }
-    }
-  </style>
+@media(min-width:700px){
+  .grid{max-width:900px;margin:auto;grid-template-columns:repeat(4,1fr)}
+  .hero,.searchbox{max-width:900px;margin-left:auto;margin-right:auto}
+}
+</style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo">কাজঘর</div>
+<header class="header">
+  <div class="logo">কাজ<span>ঘর</span></div>
   <div class="search">⌕</div>
 </header>
 
 <section class="hero">
   <h1>কাজঘর</h1>
-  <p>আপনার সব অনলাইন কাজ এক জায়গায়</p>
+  <p>আপনার প্রয়োজনীয় সব অনলাইন কাজ এক জায়গায়</p>
 </section>
+
+<div class="searchbox">
+  🔍 &nbsp; আপনি কী কাজ করতে চান?
+</div>
+
+<h2 class="title">জনপ্রিয় সেবা</h2>
 
 <div class="grid">
 
   <div class="card">
-    <div class="icon ai">AI</div>
-    <h3>এআই ফটো এডিট</h3>
-    <p>AI দিয়ে ছবি এডিট করুন</p>
+    <div class="icon i1">AI</div>
+    <h3>AI ফটো এডিট</h3>
+    <p>AI দিয়ে ছবি এডিট</p>
   </div>
 
   <div class="card">
-    <div class="icon photo">✎</div>
+    <div class="icon i2">📷</div>
     <h3>ফটো এডিট</h3>
-    <p>ছবি এডিট ও ডিজাইন</p>
+    <p>ছবি সাজান ও এডিট</p>
   </div>
 
   <div class="card">
-    <div class="icon pdf">▣</div>
-    <h3>PDF টুলস</h3>
+    <div class="icon i3">📄</div>
+    <h3>ডকুমেন্ট</h3>
+    <p>ডকুমেন্ট তৈরি</p>
+  </div>
+
+  <div class="card">
+    <div class="icon i4">PDF</div>
+    <h3>PDF Tools</h3>
     <p>PDF এর বিভিন্ন কাজ</p>
   </div>
 
   <div class="card">
-    <div class="icon document">▤</div>
-    <h3>ডকুমেন্ট</h3>
-    <p>ডকুমেন্ট তৈরি করুন</p>
-  </div>
-
-  <div class="card">
-    <div class="icon job">⌕</div>
+    <div class="icon i5">💼</div>
     <h3>চাকরির তথ্য</h3>
-    <p>চাকরির খবর দেখুন</p>
+    <p>চাকরির খবর</p>
   </div>
 
   <div class="card">
-    <div class="icon print">▣</div>
+    <div class="icon i6">🖨️</div>
     <h3>প্রিন্টিং</h3>
     <p>প্রিন্ট ও ডিজাইন</p>
   </div>
 
   <div class="card">
-    <div class="icon cv">▤</div>
+    <div class="icon i7">📝</div>
     <h3>CV তৈরি</h3>
     <p>সহজে CV বানান</p>
   </div>
 
   <div class="card">
-    <div class="icon design">✎</div>
+    <div class="icon i8">🎨</div>
     <h3>গ্রাফিক ডিজাইন</h3>
     <p>ব্যানার ও পোস্টার</p>
   </div>
 
   <div class="card">
-    <div class="icon tools">⚙</div>
-    <h3>অন্যান্য টুলস</h3>
-    <p>আরও অনেক কাজ</p>
+    <div class="icon i9">🪪</div>
+    <h3>আইডি ছবি</h3>
+    <p>Passport ও NID ছবি</p>
+  </div>
+
+  <div class="card">
+    <div class="icon i10">📐</div>
+    <h3>ছবি Resize</h3>
+    <p>ছবির সাইজ পরিবর্তন</p>
+  </div>
+
+  <div class="card">
+    <div class="icon i11">✨</div>
+    <h3>ছবির Quality</h3>
+    <p>ছবির মান বাড়ান</p>
+  </div>
+
+  <div class="card">
+    <div class="icon i12">⚙️</div>
+    <h3>আরও Tools</h3>
+    <p>আরও অনেক সেবা</p>
   </div>
 
 </div>
 
-<footer>
-  © 2026 KajGhor — কাজঘর
+<footer class="footer">
+  © 2026 KajGhor — কাজঘর<br>
+  আপনার ডিজিটাল সেবার বিশ্বস্ত ঠিকানা
 </footer>
+
+<nav class="bottom">
+  <div class="nav active">
+    <b>⌂</b>হোম
+  </div>
+  <div class="nav">
+    <b>▦</b>সেবাসমূহ
+  </div>
+  <div class="nav">
+    <b>♡</b>পছন্দ
+  </div>
+  <div class="nav">
+    <b>♙</b>অ্যাকাউন্ট
+  </div>
+</nav>
 
 </body>
 </html>
